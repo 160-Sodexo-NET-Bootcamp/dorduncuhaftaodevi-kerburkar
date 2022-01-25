@@ -81,7 +81,7 @@ namespace API
             {
                 endpoints.MapControllers();
             });
-            TechnicalErrorJob technicalErrorJob = new TechnicalErrorJob();
+            TechnicalErrorJob.TechnicalErrorDataOperation();
 
         }
     }

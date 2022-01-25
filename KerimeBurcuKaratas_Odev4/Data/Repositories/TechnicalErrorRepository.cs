@@ -13,7 +13,7 @@ namespace Data.Repositories
     //Vehicle için repository eklendi. GenericRepository miras verildi.
     public class TechnicalErrorRepository : GenericRepository<TechnicalError>, ITechnicalErrorRepository
     {
-        public TechnicalErrorRepository(ApplicationDbContext context, ILogger logger) : base(context, logger)
+        public TechnicalErrorRepository(ApplicationDbContext context) : base(context)
         {
         }
     }

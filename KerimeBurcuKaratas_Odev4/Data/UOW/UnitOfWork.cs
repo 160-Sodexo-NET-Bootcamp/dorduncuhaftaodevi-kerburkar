@@ -12,18 +12,16 @@ namespace Data.UOW
     //Repositoryleri kullanmak için class oluşturuldu.
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ILogger _logger;
         //Dispose ve complete işlemleri için eklendi. Constractor inject edildi. (Dependency injection)
         private readonly ApplicationDbContext _context;
         public ITechnicalErrorRepository TechnicalError { get; private set; }
 
         //Dependency injection için constarctor oluşturuldu.
-        public UnitOfWork(ApplicationDbContext context, ILoggerFactory loggerFactory)
+        public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
-            _logger = loggerFactory.CreateLogger("HomeWork4");
 
-            TechnicalError = new TechnicalErrorRepository(_context, _logger);
+            TechnicalError = new TechnicalErrorRepository(_context);
 
         }
 

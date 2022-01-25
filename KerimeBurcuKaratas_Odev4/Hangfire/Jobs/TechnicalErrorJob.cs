@@ -1,5 +1,4 @@
-﻿
-using Hangfire;
+﻿using Hangfire;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace HangfireSchedule.Jobs
 {
-    public class TechnicalErrorJob
+    public static class TechnicalErrorJob
     {
-        public TechnicalErrorJob()
+        public static void TechnicalErrorDataOperation()
         {
-            RecurringJob.AddOrUpdate(() => DoJob(), Cron.Minutely);
-        }
-
-        public void DoJob()
-        {
-            System.Console.WriteLine("Deneme");
+            RecurringJob.AddOrUpdate<TechnicalErrorJobManager>(nameof(TechnicalErrorJobManager), job => job.DoJob(), Cron.Minutely);
         }
     }
 }

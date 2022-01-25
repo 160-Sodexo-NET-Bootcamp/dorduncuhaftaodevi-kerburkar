@@ -12,14 +12,12 @@ namespace Data.Generic
     //GenericRepository için class eklendi. (Repository pattern için)
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly ILogger logger;
         protected ApplicationDbContext context;
         internal DbSet<T> dbSet;
 
 
-        public GenericRepository(ApplicationDbContext context, ILogger logger)
+        public GenericRepository(ApplicationDbContext context)
         {
-            this.logger = logger;
             this.context = context;
 
             dbSet = context.Set<T>();
