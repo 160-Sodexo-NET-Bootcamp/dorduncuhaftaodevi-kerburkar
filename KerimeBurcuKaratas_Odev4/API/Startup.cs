@@ -1,5 +1,6 @@
 using Data.Context;
 using Data.UOW;
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,10 @@ namespace API
                     options.UseSqlServer(dbConnection).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
 
             );
+            // hangfire
+            services.AddHangfire(x => x.UseSqlServerStorage(Configuration["ConnectionStrings:DefaultHangfireConnection"]));
+            services.AddHangfireServer();
+
             //Proje derlendiðinde UnitOfWork çalýþmasý için eklendi.
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -51,6 +56,7 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,10 +73,14 @@ namespace API
 
             app.UseAuthorization();
 
+            //hangfire
+            app.UseHangfireDashboard();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
