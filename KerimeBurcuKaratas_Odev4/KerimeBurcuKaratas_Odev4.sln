@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6B9B8E27-6968-4EFA-BD3F-74C0B79D142D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire", "Hangfire\Hangfire.csproj", "{5D695275-CF6D-4308-9541-464F72162B59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfireSchedule", "Hangfire\HangfireSchedule.csproj", "{5D695275-CF6D-4308-9541-464F72162B59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

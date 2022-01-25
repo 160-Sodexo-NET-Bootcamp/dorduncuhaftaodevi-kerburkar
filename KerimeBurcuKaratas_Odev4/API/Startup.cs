@@ -1,6 +1,7 @@
 using Data.Context;
 using Data.UOW;
 using Hangfire;
+using HangfireSchedule.Jobs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -80,6 +81,7 @@ namespace API
             {
                 endpoints.MapControllers();
             });
+            TechnicalErrorJob technicalErrorJob = new TechnicalErrorJob();
 
         }
     }
