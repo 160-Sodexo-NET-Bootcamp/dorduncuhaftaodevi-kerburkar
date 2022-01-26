@@ -1,6 +1,7 @@
 ﻿using Data.Context;
 using Data.Generic;
 using Entity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace Data.Repositories
     {
         public TechnicalErrorRepository(ApplicationDbContext context) : base(context)
         {
+        }
+
+        public async Task<List<TechnicalError>> GetAllOpenErrors()
+        {
+            var result = await context.TechnicalErrors.Where(q => q.StatusId == TechnicalStatus.Open).ToListAsync();
+            return result;
         }
     }
 }

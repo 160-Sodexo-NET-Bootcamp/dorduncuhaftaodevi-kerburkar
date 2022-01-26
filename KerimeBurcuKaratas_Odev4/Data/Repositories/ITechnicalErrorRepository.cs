@@ -11,5 +11,6 @@ namespace Data.Repositories
     //TechnicalError için Repository patern uygulandı. (GenericRepository)
     public interface ITechnicalErrorRepository : IGenericRepository<TechnicalError>
     {
+        Task<List<TechnicalError>> GetAllOpenErrors();
     }
 }

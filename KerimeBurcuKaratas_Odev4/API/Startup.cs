@@ -81,8 +81,9 @@ namespace API
             {
                 endpoints.MapControllers();
             });
-            TechnicalErrorJob.TechnicalErrorDataOperation();
-
+            //Insert ve Update Job'larý çaðýrýlýyor.
+            TechnicalErrorInsertJob.TechnicalErrorInsertOperation();
+            TechnicalErrorUpdateJob.TechnicalErrorUpdateOperation();
         }
     }
 }
